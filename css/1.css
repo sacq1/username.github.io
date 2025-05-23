@@ -1,0 +1,20 @@
+/* 全局样式 */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* 导航栏品牌字体特效 */
+.navbar-brand {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5rem;
+    color: #4CAF50 !important; /* 徒步主题色 */
+}
+
+/* 文章卡片悬停动画 */
+.article-card {
+    transition: transform 0.3s ease;
+}
+.article-card:hover {
+    transform: translateY(-5px);
+}

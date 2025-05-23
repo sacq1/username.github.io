@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我 - 骄峰的徒步之旅</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- 自定义CSS -->
+    <style>
+        /* 背景渐变效果 */
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.85);
+            transition: var(--transition);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+            margin-right: 1rem;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff;
+        }
+
+        /* 头像样式 */
+        .profile-avatar {
+            width: 200px;
+            height: 200px;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .profile-avatar:hover {
+            transform: rotate(5deg);
+        }
+
+        /* 技能标签样式 */
+        .skill-badge {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4CAF50;
+            border: 2px solid #4CAF50;
+            border-radius: 20px;
+            margin: 5px;
+            padding: 8px 15px;
+            font-weight: 500;
+        }
+
+        /* 时间线样式 */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            border-left: 3px solid #4CAF50;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -47px;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: #4CAF50;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        
+        /* 编辑/删除按钮样式 */
+        .timeline-actions {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .timeline-item:hover .timeline-actions {
+            opacity: 1;
+        }
+        .action-btn {
+            cursor: pointer;
+            margin-left: 10px;
+            color: #6c757d;
+            transition: color 0.3s;
+        }
+        .action-btn:hover {
+            color: #0d6efd;
+        }
+        .action-btn.delete:hover {
+            color: #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fa fa-mountain mr-2"></i>骄峰户外
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="jl.html">户外简历</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="About me.html">关于我</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面主体 -->
+    <main class="container py-5 mt-5">
+        <!-- 个人简介板块 -->
+        <section class="row align-items-center mb-5">
+            <div class="col-md-4 text-center">
+                <img src="img/gr.jpg" alt="骄峰" class="profile-avatar rounded-circle">
+            </div>
+            <div class="col-md-8 mt-4 mt-md-0">
+                <h1 class="display-4">骄峰</h1>
+                <p class="lead text-muted">
+                    职业户外领队 | 徒步路线设计师 | 自然摄影师
+                </p>
+                <div class="d-flex flex-wrap">
+                    <span class="skill-badge"><i class="fas fa-hiking me-2"></i>户外徒步</span>
+                    <span class="skill-badge"><i class="fas fa-camera me-2"></i>自然摄影</span>
+                    <span class="skill-badge"><i class="fas fa-map-marked-alt me-2"></i>路线规划</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 个人故事板块 -->
+        <section class="card mb-5 border-0 shadow">
+            <div class="card-body p-4">
+                <h2 class="mb-4"><i class="fas fa-mountain text-success me-2"></i>我的徒步故事</h2>
+                <p class="lead">
+                    从2023年第一次独自徒步武功山开始，我的足迹已遍布中国20+个自然保护区和无人区。</p>
+                    一次简单的徒步之旅，不知不觉中热爱上了户外。一路磕磕碰碰学到很多东西，从装备到经验的积累，或许在看的朋友会有我相同的经历！</p>
+                    通过这个博客，我想与你分享：
+                </p>
+                <ul class="list-unstyled">
+                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>独家徒步路线攻略</li>
+                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>户外技能实用技巧</li>
+                    <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>自然摄影作品集</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 时间线板块 -->
+        <section class="mb-5">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="mb-4"><i class="fas fa-timeline text-success me-2"></i>徒步历程</h2>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTimelineModal">
+                    添加记录
+                </button>
+            </div>
+            <div class="timeline" id="timeline-container">
+                <!-- 时间线项目 -->
+                <div class="timeline-item" data-id="1">
+                    <h5>2025年3月 - 新乡南太行</h5>
+                    <p class="text-muted">3天2夜，感受当地人文特色</p>
+                    <div class="timeline-actions">
+                        <span class="action-btn edit" onclick="editTimelineRecord(1)"><i class="fas fa-edit"></i></span>
+                        <span class="action-btn delete" onclick="deleteTimelineRecord(1)"><i class="fas fa-trash"></i></span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-id="2">
+                    <h5>2024年8月 - 桂林漓江</h5>
+                    <p class="text-muted">历时15天，探寻阳朔当地的美景</p>
+                    <div class="timeline-actions">
+                        <span class="action-btn edit" onclick="editTimelineRecord(2)"><i class="fas fa-edit"></i></span>
+                        <span class="action-btn delete" onclick="deleteTimelineRecord(2)"><i class="fas fa-trash"></i></span>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-id="3">
+                    <h5>2024年5月 - 恩施大峡谷</h5>
+                    <p class="text-muted">人生就一次机会的活动</p>
+                    <div class="timeline-actions">
+                        <span class="action-btn edit" onclick="editTimelineRecord(3)"><i class="fas fa-edit"></i></span>
+                        <span class="action-btn delete" onclick="deleteTimelineRecord(3)"><i class="fas fa-trash"></i></span>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-id="4">
+                    <h5>2024年2月 - 香港麦理浩径100km</h5>
+                    <p class="text-muted">5天4夜强驴之路</p>
+                    <div class="timeline-actions">
+                        <span class="action-btn edit" onclick="editTimelineRecord(4)"><i class="fas fa-edit"></i></span>
+                        <span class="action-btn delete" onclick="deleteTimelineRecord(4)"><i class="fas fa-trash"></i></span>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-id="5">
+                    <h5>2023年12月 - 武功山沈明线跨年之旅</h5>
+                    <p class="text-muted">两天一夜全程48km</p>
+                    <div class="timeline-actions">
+                        <span class="action-btn edit" onclick="editTimelineRecord(5)"><i class="fas fa-edit"></i></span>
+                        <span class="action-btn delete" onclick="deleteTimelineRecord(5)"><i class="fas fa-trash"></i></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系板块 -->
+        <section class="card border-0 shadow">
+            <div class="card-body p-4 text-center">
+                <h2 class="mb-4"><i class="fas fa-envelope-open-text text-success me-2"></i>与我联系</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <a href="#" class="text-decoration-none">
+                            <i class="fab fa-weixin fa-2x text-success"></i>
+                            <div class="mt-2">JIAOFHW</div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <a href="#" class="text-decoration-none">
+                            <i class="fab fa-instagram fa-2x text-danger"></i>
+                            <div class="mt-2">JIAOFHW</div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <a href="#" class="text-decoration-none">
+                            <i class="fas fa-envelope fa-2x text-primary"></i>
+                            <div class="mt-2">3535748569@qq.com</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 添加记录模态框 -->
+    <div class="modal fade" id="addTimelineModal" tabindex="-1" aria-labelledby="addTimelineModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addTimelineModalLabel">添加徒步历程记录</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addTimelineForm">
+                        <div class="mb-3">
+                            <label for="newTimelineDate" class="form-label">时间</label>
+                            <input type="text" class="form-control" id="newTimelineDate" name="newTimelineDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newTimelineLocation" class="form-label">地点</label>
+                            <input type="text" class="form-control" id="newTimelineLocation" name="newTimelineLocation" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newTimelineDescription" class="form-label">描述</label>
+                            <input type="text" class="form-control" id="newTimelineDescription" name="newTimelineDescription" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" onclick="addTimelineRecord()">保存记录</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 编辑记录模态框 -->
+    <div class="modal fade" id="editTimelineModal" tabindex="-1" aria-labelledby="editTimelineModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editTimelineModalLabel">编辑徒步历程记录</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editTimelineForm">
+                        <input type="hidden" id="editRecordId" name="editRecordId">
+                        <div class="mb-3">
+                            <label for="editTimelineDate" class="form-label">时间</label>
+                            <input type="text" class="form-control" id="editTimelineDate" name="editTimelineDate" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editTimelineLocation" class="form-label">地点</label>
+                            <input type="text" class="form-control" id="editTimelineLocation" name="editTimelineLocation" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editTimelineDescription" class="form-label">描述</label>
+                            <input type="text" class="form-control" id="editTimelineDescription" name="editTimelineDescription" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" onclick="updateTimelineRecord()">保存更改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 全局变量，用于记录当前编辑的记录ID
+        let currentEditId = null;
+        
+        // 添加记录
+        function addTimelineRecord() {
+            const date = document.getElementById('newTimelineDate').value;
+            const location = document.getElementById('newTimelineLocation').value;
+            const description = document.getElementById('newTimelineDescription').value;
+            
+            // 获取当前最大ID并加1
+            const items = document.querySelectorAll('.timeline-item');
+            let maxId = 0;
+            items.forEach(item => {
+                const id = parseInt(item.getAttribute('data-id'));
+                if (id > maxId) maxId = id;
+            });
+            const newId = maxId + 1;
+
+            const timeline = document.getElementById('timeline-container');
+            const newItem = document.createElement('div');
+            newItem.classList.add('timeline-item');
+            newItem.setAttribute('data-id', newId);
+            newItem.innerHTML = `
+                <h5>${date} - ${location}</h5>
+                <p class="text-muted">${description}</p>
+                <div class="timeline-actions">
+                    <span class="action-btn edit" onclick="editTimelineRecord(${newId})"><i class="fas fa-edit"></i></span>
+                    <span class="action-btn delete" onclick="deleteTimelineRecord(${newId})"><i class="fas fa-trash"></i></span>
+                </div>
+            `;
+            // 添加到时间线顶部
+            if (timeline.firstChild) {
+                timeline.insertBefore(newItem, timeline.firstChild);
+            } else {
+                timeline.appendChild(newItem);
+            }
+
+            // 关闭模态框
+            const modal = bootstrap.Modal.getInstance(document.getElementById('addTimelineModal'));
+            modal.hide();
+
+            // 清空表单
+            document.getElementById('addTimelineForm').reset();
+        }
+        
+        // 编辑记录
+        function editTimelineRecord(id) {
+            currentEditId = id;
+            const item = document.querySelector(`.timeline-item[data-id="${id}"]`);
+            const title = item.querySelector('h5').textContent;
+            const [date, location] = title.split(' - ');
+            const description = item.querySelector('p').textContent;
+            
+            document.getElementById('editRecordId').value = id;
+            document.getElementById('editTimelineDate').value = date;
+            document.getElementById('editTimelineLocation').value = location;
+            document.getElementById('editTimelineDescription').value = description;
+            
+            // 显示编辑模态框
+            const modal = new bootstrap.Modal(document.getElementById('editTimelineModal'));
+            modal.show();
+        }
+        
+        // 更新记录
+        function updateTimelineRecord() {
+            if (!currentEditId) return;
+            
+            const id = currentEditId;
+            const date = document.getElementById('editTimelineDate').value;
+            const location = document.getElementById('editTimelineLocation').value;
+            const description = document.getElementById('editTimelineDescription').value;
+            
+            const item = document.querySelector(`.timeline-item[data-id="${id}"]`);
+            if (item) {
+                item.querySelector('h5').textContent = `${date} - ${location}`;
+                item.querySelector('p').textContent = description;
+            }
+            
+            // 关闭模态框
+            const modal = bootstrap.Modal.getInstance(document.getElementById('editTimelineModal'));
+            modal.hide();
+            
+            currentEditId = null;
+        }
+        
+        // 删除记录
+        function deleteTimelineRecord(id) {
+            if (confirm('确定要删除这条记录吗？')) {
+                const item = document.querySelector(`.timeline-item[data-id="${id}"]`);
+                if (item) {
+                    // 添加删除动画
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateX(-50px)';
+                    item.style.transition = 'opacity 0.3s, transform 0.3s';
+                    
+                    // 动画结束后移除元素
+                    setTimeout(() => {
+                        item.remove();
+                    }, 300);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

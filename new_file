@@ -1,0 +1,33 @@
+
+
+
+
+
+
+
+
+
+// 监听页面滚动事件
+window.addEventListener('scroll', function() {
+    // 选择导航栏元素
+    const navbar = document.querySelector('.navbar');
+
+    // 如果页面垂直滚动超过 50 像素
+    if (window.scrollY > 50) {
+        // 给导航栏添加一个新样式类，使其背景变得更不透明、更紧凑
+        navbar.classList.add('navbar-scrolled');
+    } else {
+        // 否则移除该类，恢复初始样式
+        navbar.classList.remove('navbar-scrolled');
+    }
+});
+
+
+
+
+/* 当页面滚动时添加该类，改变导航栏样式 */
+.navbar-scrolled {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.95); /* 更深色的不透明背景 */
+}
